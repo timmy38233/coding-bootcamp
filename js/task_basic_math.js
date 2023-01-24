@@ -1,10 +1,10 @@
-const pi = Math.PI
+const PI = Math.PI
 
 // Cylinder
 let rCylinder = 8;
 let hCylinder = 9;
 
-let vCylinder = hCylinder * pi * rCylinder ** 2;
+let vCylinder = hCylinder * PI * rCylinder ** 2;
 
 console.log(`The volume of a cylinder with a radius of ${rCylinder} and a height of ${hCylinder} is ${vCylinder.toFixed(2)}`);
 
@@ -12,7 +12,7 @@ console.log(`The volume of a cylinder with a radius of ${rCylinder} and a height
 // Sphere
 let rSphere = 8
 
-let vSphere = (4 / 3) * pi * rSphere ** 3;
+let vSphere = (4 / 3) * PI * rSphere ** 3;
 
 console.log(`The volume of a sphere with a radius of ${rSphere} is ${vSphere.toFixed(2)}`);
 
