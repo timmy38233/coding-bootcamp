@@ -1,0 +1,41 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sudoku {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+
+    width: 70vw;
+    height: 70vw;
+    padding: 2%;
+
+    background-color: black;
+}
+
+.sudoku__box {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 32%;
+    gap: 2%;
+}
+
+.sudoku__item {
+    flex: 0 0 32%;
+    width: 32%;
+    height: 32%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2em;
+    color: darkslategrey;
+    background-color: white;
+}
