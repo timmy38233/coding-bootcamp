@@ -31,6 +31,7 @@ body {
     background-color: #333;
 
     overflow: hidden;
+    position: relative;
 }
 
 .leftlane {
@@ -74,12 +75,23 @@ body {
     background-color: var(--car-color-main);
     margin: auto;
 
-    position: relative;
+    position: absolute;
+    left: 2vw;
     border-radius: 0.5vw;
+
+    transition: all 1s;
 
     transform: translateY(50vh);
 
     animation: move-car 10s linear infinite;
+}
+
+.leftlane:focus ~ .car {
+    left: 2vw;
+}
+
+.rightlane:focus ~ .car {
+    left: 12vw;
 }
 
 .car__lightcone {
