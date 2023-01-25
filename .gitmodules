@@ -1,0 +1,6 @@
+[submodule "js-sandbox"]
+	path = js-sandbox
+	url = git@github.com:timmy38233/js-sandbox.git
+[submodule "CV"]
+	path = CV
+	url = git@github.com:timmy38233/CV.git
