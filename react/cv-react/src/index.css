@@ -1,0 +1,35 @@
+/* RESET STUFF */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --dark-color: #262E33;
+  --not-so-dark-color: #373F44;
+  --background-color: #abbb60;
+  --contrast-color: #7292BA;
+
+  --hero-font-size: calc(10px + 60 * (100vw / 1024));
+  --banner-font-size: calc(var(--hero-font-size)/2.5);
+}
+
+body {
+  min-height: 100vh;
+  color: #333;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  background-color: #eee;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover,
+a:focus {
+  color: #eee;
+}
+
+li {
+  margin-left: 25px;
+}
