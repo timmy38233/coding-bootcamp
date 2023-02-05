@@ -1,0 +1,9 @@
+.TodoItem--prio-low {
+    --prio-color: green;
+}
+.TodoItem--prio-normal {
+    --prio-color: #ddd;
+}
+.TodoItem--prio-high {
+    --prio-color: red;
+}
