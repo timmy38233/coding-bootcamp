@@ -9,7 +9,8 @@
   border: 1px solid #ddd;
   background: #333;
   color: #fff;
-
+  width: calc(var(--size) * 4);
+  flex-wrap: wrap;
   font-family: Arial, Helvetica, sans-serif;
 }
 

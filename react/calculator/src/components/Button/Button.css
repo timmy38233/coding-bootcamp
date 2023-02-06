@@ -19,3 +19,7 @@
 .Button--operation {
     --button-color: darkorange;
 }
+
+.Button__clear {
+    --button-color: #aaa;
+}

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 import Button from '../Button/Button';
 
@@ -6,8 +6,6 @@ import './OperationPad.css';
 
 function OperationPad(props) {
     const { result, setResult, previousResult, setPreviousResult, operation, setOperation } = props;
-
-    const [operand, setOperand] = useState(0);
 
     const operations = ['/', '*', '-', '+', '='];
     const operationToFn = {
@@ -37,7 +35,7 @@ function OperationPad(props) {
                     key={e}
                     value={e}
                     clickHandler={clickOpButton}
-                    additionalClasses={['operation']}
+                    additionalClasses={['--operation']}
                 />
             ))}
         </div>

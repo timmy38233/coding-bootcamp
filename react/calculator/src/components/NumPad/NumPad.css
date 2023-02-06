@@ -4,7 +4,7 @@
     width: calc(3 * var(--size));
 }
 
-.NumPad > .Button:first-child {
+.NumPad > .Button:first-child, .NumPad > .Button:last-child  {
     flex-basis: 100%;
-    
+
 }

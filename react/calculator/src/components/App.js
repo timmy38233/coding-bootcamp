@@ -13,9 +13,13 @@ function App() {
 
     return (
         <div className="CalculatorApp">
+        <Result result={result} />
             <div className="CalculatorApp__LeftSide">
-                <Result result={result} />
-                <NumPad result={result} setResult={setResult} />
+                <NumPad
+                    result={result}
+                    setResult={setResult}
+                    setPreviousResult={setPreviousResult}
+                />
             </div>
             <div className="CalculatorApp__RightSide">
                 <OperationPad
