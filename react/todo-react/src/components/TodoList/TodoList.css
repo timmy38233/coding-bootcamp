@@ -5,7 +5,7 @@
 
     display: flex;
     flex-direction: column;
-    
+
     --prio-color: #ddd;
 }
 
@@ -81,7 +81,7 @@
     transition: all 0.2s;
 }
 
-.TodoList__delete:hover {
+.TodoItem__delete:hover {
     background-color: #5a5;
     color: #fff;
 }

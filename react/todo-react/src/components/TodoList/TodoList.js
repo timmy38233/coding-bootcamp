@@ -7,7 +7,7 @@ function TodoList(props) {
         <ul className="TodoList">
             {props.todos.map((todo, i) => (
                 <li key={i} className={`TodoItem--prio-${props.prios[todo.prio]}`}>
-                    <span className="TodoItem__delete" onClick={(e) => deleteItem(i)}></span>
+                    <span className="TodoItem__delete" onClick={(e) => deleteItem(i)}>✓</span>
                     <span className="TodoItem__title">{todo.text}</span>
                     <span className="TodoItem__date">{todo.date}</span>
                     <span className="TodoItem__prio">{props.prios[todo.prio]}</span>
