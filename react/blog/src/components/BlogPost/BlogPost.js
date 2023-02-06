@@ -9,15 +9,15 @@ function BlogPost(props) {
     };
 
     return (
-        <div className={props.className}>
+        <div className={[props.className, `${props.className}--Post`].join(' ')}>
             {postStructure.map((e, i) =>
                 e.attrHidden ? (
                     ''
                 ) : (
-                    <span key={i} className={`Post__${e.attrName}`} >{post[e.attrName] || ''}</span>
+                    <span key={i} className={`Entry__${e.attrName}`} >{post[e.attrName] || ''}</span>
                 )
             )}
-            <span className="Post__edit" onClick={e => editPost(post, post.index)}>Edit</span>
+            <button className="Entry__edit" onClick={e => editPost(post, post.index)}>Edit</button>
         </div>
     );
 }

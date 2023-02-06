@@ -1,8 +1,64 @@
 .Blog {
+    height:100%;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: #eee;
 }
 
 .BlogEntry {
     position: relative;
+    margin: 20px;
+    padding: 20px;
+    width: 60%;
+
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.Entry__title {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    width: calc(100% - 50px);
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+
+.Entry__content {
+    display: block;
+    margin: 10px 0;
+
+    width: calc(100% - 50px);
+    border: none;
+    font-family: inherit;
+}
+
+.Entry__author {
+    display: inline-block;
+    border: none;
+    color: #666;
+    width: 80%;
+    font-size: 0.8em;
+}
+
+.Entry__date {
+    display: inline-block;
+    border: none;
+    color: #666;
+    text-align: right;
+    float: right;
+    font-size: 0.8em;
+}
+
+.Entry__edit, .Entry__save {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 5px;
 }

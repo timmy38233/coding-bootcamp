@@ -19,7 +19,7 @@ function Form(props) {
     };
 
     return (
-        <div className={props.className}>
+        <div className={[props.className, `${props.className}--Form`].join(' ')}>
             <form onSubmit={saveEntry}>
                 {postStructure.map((e, i) =>
                     e.attrHidden ? (
@@ -27,7 +27,7 @@ function Form(props) {
                     ) : e.attrType == 'longText' ? (
                         <textarea
                             key={i}
-                            className={`Form__${e.attrName}`}
+                            className={`Entry__${e.attrName}`}
                             name={e.attrName}
                             placeholder={e.attrPlaceholder || ''}
                             defaultValue={post[e.attrName] || ''}
@@ -37,7 +37,7 @@ function Form(props) {
                     ) : (
                         <input
                             key={i}
-                            className={`Form__${e.attrName}`}
+                            className={`Entry__${e.attrName}`}
                             name={e.attrName}
                             type={e.attrType}
                             placeholder={e.attrPlaceholder || ''}
@@ -47,7 +47,7 @@ function Form(props) {
                         />
                     )
                 )}
-                <input type="submit" className="Form__save" value="Save" />
+                <input type="submit" className="Entry__save" value="Save" />
             </form>
         </div>
     );
