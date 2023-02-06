@@ -1,0 +1,10 @@
+.NumPad {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: calc(3 * var(--size));
+}
+
+.NumPad > .Button:first-child {
+    flex-basis: 100%;
+    
+}

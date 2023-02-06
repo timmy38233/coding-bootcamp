@@ -1,0 +1,9 @@
+.Result {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding: 5px;
+    height: var(--size);
+    font-size: calc(var(--size) / 2);
+}

@@ -1,0 +1,21 @@
+* {
+    --button-color: #ddd;
+}
+
+.Button {
+    box-sizing: border-box;
+    width: var(--size);
+    height: var(--size);
+
+    border: 1px solid #333;
+    background: var(--button-color);
+    cursor: pointer;
+}
+
+.Button:active {
+    filter: brightness(150%);
+}
+
+.Button--operation {
+    --button-color: darkorange;
+}

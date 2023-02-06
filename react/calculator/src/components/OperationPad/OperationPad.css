@@ -1,0 +1,4 @@
+.OperationPad {
+    display: flex;
+    flex-direction: column;
+}
