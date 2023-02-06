@@ -1,0 +1,8 @@
+.TodoSort {
+    cursor: pointer;
+    margin: 10px auto;
+    text-align: center;
+
+    font-size: 0.8em;
+    color: #666;
+}

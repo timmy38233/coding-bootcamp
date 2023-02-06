@@ -1,0 +1,11 @@
+.Icon {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Icon__image {
+    width: 10vw;
+    margin: 0 5vw;
+    max-width: 300px;
+}

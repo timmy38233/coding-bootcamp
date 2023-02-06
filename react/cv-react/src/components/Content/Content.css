@@ -1,0 +1,28 @@
+.Content {
+    padding: 25px;
+    background-color: var(--contrast-color);
+    color: #fff;
+}
+
+
+.Content section {
+    margin-top: 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+.info__heading {
+    margin-bottom: 25px;
+    font-weight: 300;
+    font-size: 50px;
+}
+
+.info__table {
+    line-height: 1.5em;
+}
+
+.info__description {
+    padding-right: 25px;
+    vertical-align: top;
+}

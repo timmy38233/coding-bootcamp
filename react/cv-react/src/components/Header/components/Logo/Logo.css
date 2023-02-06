@@ -1,0 +1,15 @@
+.Logo {
+    width: 40%;
+    line-height: 0;
+}
+
+.Logo .Logo__image {
+    margin-top: 15%;
+    margin-bottom: -2px;
+    width: 100%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.Logo .Logo__image:hover {
+    transform: scale(1.05);
+}

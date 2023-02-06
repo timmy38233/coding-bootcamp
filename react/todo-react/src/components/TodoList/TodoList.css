@@ -1,0 +1,87 @@
+.TodoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    
+    --prio-color: #ddd;
+}
+
+.TodoList li {
+    --item-padding: 10px;
+
+    box-sizing: border-box;
+    width: 250px;
+    min-height: 75px;
+    margin: 5px auto;
+    padding: var(--item-padding);
+    padding-bottom: calc(var(--item-padding) + 2em);
+    line-height: 1em;
+    position: relative;
+
+    border-radius: 5px;
+    border: 1px solid var(--prio-color);
+
+    font-weight: 300;
+    color: #444;
+    box-shadow: 0 2px 10px #ddd;
+
+    transition: all 0.5s, box-shadow 0.3s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.TodoList li:hover {
+    box-shadow: 0 5px 10px #666;
+}
+
+.TodoList li span{
+    display: block;
+}
+
+.TodoItem__title {
+    width: 90%;
+}
+
+.TodoItem__date {
+    position: absolute;
+    bottom: var(--item-padding);
+
+    font-size: 0.8em;
+    color: #666;
+    border: none;
+}
+
+.TodoItem__prio {
+    position: absolute;
+    bottom: var(--item-padding);
+    right: var(--item-padding);
+
+    font-size: 0.8em;
+    color: var(--prio-color);
+}
+
+.TodoItem__delete {
+    position: absolute;
+    top: var(--item-padding);
+    right: var(--item-padding);
+
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+
+    font-size: 0.7em;
+    text-align: center;
+
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.TodoList__delete:hover {
+    background-color: #5a5;
+    color: #fff;
+}

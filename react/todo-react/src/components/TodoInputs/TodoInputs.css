@@ -1,0 +1,63 @@
+.TodoInputs {
+    --prio-color: #ddd;
+    --item-padding: 10px;
+
+    box-sizing: border-box;
+    width: 250px;
+    min-height: 75px;
+    margin: 5px auto;
+    padding: var(--item-padding);
+    padding-bottom: calc(var(--item-padding) + 2em);
+    line-height: 1em;
+    position: relative;
+
+    border-radius: 5px;
+    border: 1px solid var(--prio-color);
+
+    font-weight: 300;
+    color: #444;
+    box-shadow: 0 2px 10px #ddd;
+
+    transition: all 0.5s, box-shadow 0.3s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.TodoInputs > * {
+    display: block;
+}
+
+.TodoInputs input[type='text'] {
+    width: calc(100% - var(--item-padding) + 2px);
+    border: none;
+}
+
+.TodoInputs input[type='date'] {
+    position: absolute;
+    bottom: var(--item-padding);
+
+    font-size: 0.8em;
+    color: #666;
+    border: none;
+}
+
+.TodoInputs select {
+    position: absolute;
+    bottom: var(--item-padding);
+    right: calc(var(--item-padding) + 30px);
+
+    font-size: 0.8em;
+    border: none;
+    background: transparent;
+    color: #666;
+}
+
+.TodoInputs input[type='submit'] {
+    position: absolute;
+    bottom: var(--item-padding);
+    right: var(--item-padding);
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
