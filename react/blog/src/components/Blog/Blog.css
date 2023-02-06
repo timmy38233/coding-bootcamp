@@ -1,0 +1,8 @@
+.Blog {
+    display: flex;
+    flex-direction: column;
+}
+
+.BlogEntry {
+    position: relative;
+}

@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.App .Header, .App .Footer {
+  flex: 1;
+}
+
+.App__Content {
+  flex-basis: 80%;
+}
