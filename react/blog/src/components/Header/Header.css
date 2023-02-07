@@ -1,0 +1,8 @@
+.Header__Container {
+    box-sizing: border-box;
+    width: 80%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

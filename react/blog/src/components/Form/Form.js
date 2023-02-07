@@ -41,7 +41,7 @@ function Form(props) {
                             name={e.attrName}
                             type={e.attrType}
                             placeholder={e.attrPlaceholder || ''}
-                            defaultValue={post[e.attrName] || ''}
+                            defaultValue={post[e.attrName] || (e.attrName === 'author' ? props.defaultAuthor : '')}
                             onChange={saveValue}
                             required={e.attrRequired || false}
                         />
