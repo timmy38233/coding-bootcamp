@@ -14,10 +14,18 @@ function BlogPost(props) {
                 e.attrHidden ? (
                     ''
                 ) : (
-                    <span key={i} className={`Entry__${e.attrName}`} >{post[e.attrName] || ''}</span>
+                    <span key={i} className={`Entry__${e.attrName}`}>
+                        {post[e.attrName] || ''}
+                    </span>
                 )
             )}
-            <button className="Entry__edit" onClick={e => editPost(post, post.index)}>Edit</button>
+            {props.canEdit ? (
+                <button className="Entry__edit" onClick={(e) => editPost(post, post.index)}>
+                    Edit
+                </button>
+            ) : (
+                <></>
+            )}
         </div>
     );
 }
