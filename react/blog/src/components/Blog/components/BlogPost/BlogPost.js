@@ -9,7 +9,7 @@ function BlogPost(props) {
     };
 
     return (
-        <div className={[props.className, `${props.className}--Post`].join(' ')}>
+        <div className={[props.className, `${props.className}--Post`, `${props.className}--${props.colorScheme}`].join(' ')}>
             {postStructure.map((e, i) =>
                 e.attrHidden ? (
                     ''

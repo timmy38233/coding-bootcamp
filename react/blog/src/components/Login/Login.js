@@ -16,6 +16,9 @@ function Login(props) {
         if (username === approvedUser.username && password === approvedUser.password) {
             props.setLoginState({ isLoggedIn: true, username: username });
         }
+         else {
+            return alert('Invalid authentication');
+         }
     }
 
     useEffect(() => {

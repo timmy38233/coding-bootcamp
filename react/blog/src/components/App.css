@@ -6,8 +6,6 @@
   box-sizing: border-box;
 
   font-family: Arial, Helvetica, sans-serif;
-
-  --colorful-background: rgb(0, 97, 139);
 }
 
 .App .Header, .App .Footer {
@@ -18,8 +16,6 @@
   justify-content: center;
   align-items: center;
 
-  background-color: var(--colorful-background);
-  color: #fff;
   text-align: center;
 }
 

@@ -19,7 +19,7 @@ function Form(props) {
     };
 
     return (
-        <div className={[props.className, `${props.className}--Form`].join(' ')}>
+        <div className={[props.className, `${props.className}--Form`,`${props.className}--${props.colorScheme}`].join(' ')}>
             <form onSubmit={saveEntry}>
                 {postStructure.map((e, i) =>
                     e.attrHidden ? (

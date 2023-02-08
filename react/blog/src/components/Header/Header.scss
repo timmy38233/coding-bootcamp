@@ -1,0 +1,30 @@
+.Header {
+    transition: background-color 1s, color 1s;
+
+    &--light {
+        background-color: lightblue;
+        color: #000;
+    }
+    &--dark {
+        background-color: #333;
+        color: #fff;
+    }
+    &--colorful {
+        background-color: rgb(0, 97, 139);;
+        color: #fff;
+    }
+
+    &--random {
+        background-color: var(--random-background-color);
+        color: var(--random-color);
+    }
+}
+
+.Header__Container {
+    box-sizing: border-box;
+    width: 80%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

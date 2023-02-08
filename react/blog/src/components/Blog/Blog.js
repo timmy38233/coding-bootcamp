@@ -1,33 +1,15 @@
 import { useEffect, useState } from 'react';
 
-import BlogPost from '../BlogPost/BlogPost';
-import Form from '../Form/Form';
+import BlogPost from './components/BlogPost/BlogPost';
+import Form from './components/Form/Form';
 
-import './Blog.css';
+import './Blog.scss';
 
 function Blog(props) {
     const postStructure = [
-        {
-            attrName: 'title',
-            attrType: 'text',
-            attrPlaceholder: 'Title',
-            attrHidden: false,
-            attrRequired: true,
-        },
-        {
-            attrName: 'content',
-            attrType: 'longText',
-            attrPlaceholder: 'Content',
-            attrHidden: false,
-            attrRequired: true,
-        },
-        {
-            attrName: 'author',
-            attrType: 'text',
-            attrPlaceholder: 'Author',
-            attrHidden: false,
-            attrRequired: true,
-        },
+        { attrName: 'title', attrType: 'text', attrPlaceholder: 'Title', attrHidden: false, attrRequired: true, },
+        { attrName: 'content', attrType: 'longText', attrPlaceholder: 'Content', attrHidden: false, attrRequired: true, },
+        { attrName: 'author', attrType: 'text', attrPlaceholder: 'Author', attrHidden: false, attrRequired: true, },
         { attrName: 'date', attrType: 'date', attrHidden: false, attrRequired: false },
         { attrName: 'type', attrType: 'text', attrHidden: true },
     ];
@@ -64,14 +46,14 @@ function Blog(props) {
 
     const editEntry = (e, i) => {
         if (!props.loginState.isLoggedIn) return
-        
+
         const newEntries = [...entries];
         newEntries[i] = e;
         setEntries(newEntries);
     };
 
     return (
-        <div className="Blog">
+        <div className={`Blog Blog--${props.colorScheme}`}>
             {[...entries, { type: 'form' }].map((e, i) =>
                 e.type === 'post' ? (
                     <BlogPost
@@ -81,6 +63,7 @@ function Blog(props) {
                         editEntry={editEntry}
                         key={i}
                         canEdit={props.loginState.isLoggedIn}
+                        colorScheme={props.colorScheme}
                     />
                 ) : e.type === 'form' && props.loginState.isLoggedIn ? (
                     <Form
@@ -90,6 +73,7 @@ function Blog(props) {
                         editEntry={editEntry}
                         key={i}
                         defaultAuthor={props.loginState.username || ''}
+                        colorScheme={props.colorScheme}
                     />
                 ) : (
                     ''
