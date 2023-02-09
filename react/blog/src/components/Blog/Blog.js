@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import useSearch from "../../hooks/useSearch";
 
 import BlogPost from './components/BlogPost/BlogPost';
 import Form from './components/Form/Form';
@@ -46,16 +47,21 @@ function Blog(props) {
 
     const editEntry = (e, i) => {
         if (!props.loginState.isLoggedIn) return
-
+        console.log(e);
         const newEntries = [...entries];
         newEntries[i] = e;
         setEntries(newEntries);
     };
 
+
+    const [filteredEntries, setSearchText] = useSearch(entries);
+
     return (
         <div className={`Blog Blog--${props.colorScheme}`}>
+            <input type="text" placeholder="Search..." onChange={(e) => setSearchText(e.target.value)} />
             {[...entries, { type: 'form' }].map((e, i) =>
-                e.type === 'post' ? (
+
+                filteredEntries.includes(e) && e.type === 'post' ? (
                     <BlogPost
                         className="BlogEntry"
                         postStructure={postStructure}
@@ -65,7 +71,7 @@ function Blog(props) {
                         canEdit={props.loginState.isLoggedIn}
                         colorScheme={props.colorScheme}
                     />
-                ) : e.type === 'form' && props.loginState.isLoggedIn ? (
+                ) : (filteredEntries.includes(e) || !e.title) && e.type === 'form' && props.loginState.isLoggedIn ? (
                     <Form
                         className="BlogEntry"
                         postStructure={postStructure}
