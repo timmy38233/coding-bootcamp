@@ -1,10 +1,12 @@
-import useSearch from "../../../hooks/useSearch"
+import useSearch from "../../../hooks/useSearch";
+
+import './Searchbar.scss';
 
 function Searchbar() {
     const [setSearchText] = useSearch();
 
   return (
-    <input type="text" onChange={(e) => setSearchText(e.target.value)} placeholder="Search..." />
+    <input type="text" className="Searchbar" onChange={(e) => setSearchText(e.target.value)} placeholder="Search..." />
   )
 }
 

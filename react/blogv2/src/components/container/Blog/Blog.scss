@@ -1,0 +1,38 @@
+.Blog {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    transition: background-color 1s, color 1s;
+
+    &--light {
+        background-color: #eee;
+        color: #000;
+    }
+    &--dark {
+
+        background-color: #666;
+        color: #fff;
+    }
+    &--colorful {
+        background-color: rgb(119, 213, 138);
+        color: #000;
+    }
+
+    &__Search {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    &__List {
+        width: 80%;
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+    }
+}

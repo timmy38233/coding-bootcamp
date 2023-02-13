@@ -1,3 +1,5 @@
+import './Post.scss';
+
 function Post(props) {
     const { entry, isLoggedIn, setPostEditing, theme } = props;
 

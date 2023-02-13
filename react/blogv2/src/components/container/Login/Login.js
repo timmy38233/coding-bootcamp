@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import Actions from '../../../state/Actions';
 import { AppStateContext } from '../../../state/context';
 
+import './Login.scss';
+
 function Login() {
     const { appState, dispatchAppState } = useContext(AppStateContext);
 
@@ -35,10 +37,12 @@ function Login() {
         e.preventDefault();
 
         if (username === approvedUser.username && password === approvedUser.password) {
+            const newLoginState = { login: { isLoggedIn: true, username: username } };
             dispatchAppState({
                 type: Actions.UserLogin,
-                payload: { login: { isLoggedIn: true, username: username } },
+                payload: newLoginState,
             });
+
         } else {
             return alert('Invalid authentication');
         }

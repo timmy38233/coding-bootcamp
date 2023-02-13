@@ -1,0 +1,66 @@
+.Post {
+    position: relative;
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 20px;
+    transition: background-color 1s, color 1s;
+
+    &--light {
+        background-color: #fff;
+        color: #000;
+    }
+
+    &--dark {
+        background-color: #333;
+        color: #eee;
+    }
+
+    &--colorful {
+        background-color: darkred;
+        color: #fff;
+    }
+
+
+    &__title {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+
+        width: calc(100% - 50px);
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    &__content {
+        display: block;
+        margin: 10px 0;
+
+        width: calc(100% - 50px);
+        border: none;
+        font-family: inherit;
+    }
+
+    &__author {
+        display: inline-block;
+        border: none;
+        width: 80%;
+        font-size: 0.8em;
+    }
+
+    &__date {
+        border: none;
+        text-align: right;
+        float: right;
+        font-size: 0.8em;
+    }
+
+    &__edit {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        background: #eee;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+    }
+}

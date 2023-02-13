@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import './Form.scss';
+
 function Form(props) {
     const { postToEdit, setPostEditing, savePost, theme } = props;
     const [formData, setFormData] = useState({ title: '', content: '', author: '', date: '' });

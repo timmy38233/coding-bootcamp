@@ -1,5 +1,5 @@
 const Actions = {
-    ClearEntries: 'clearentries',
+    SetEntries: 'setentries',
     AddEntries: 'addentry',
     EditEntry: 'editentry',
     RemoveEntry: 'removeentry',

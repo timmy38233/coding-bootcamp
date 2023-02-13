@@ -8,8 +8,8 @@ export default function appStateReducer(state, action) {
     }
 
     switch (action.type) {
-        case Actions.ClearEntries:
-            return {...state, entries: []};
+        case Actions.SetEntries:
+            return {...state, entries: action.payload.entries.map(e => !e.id ? { ...e, id: uuidv4() } : { ...e })};
         case Actions.AddEntries: {
             // Appends the entries from the payload to the appState.entries object. Generates a uuid for new entries from payload, if not already given.
             return { ...state, entries: [...state.entries, ...action.payload.entries.map(e => !e.id ? { ...e, id: uuidv4() } : { ...e })] }

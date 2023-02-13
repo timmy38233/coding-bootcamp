@@ -1,0 +1,52 @@
+.Form {
+
+    box-sizing: border-box;
+    width: 80%;
+    padding: 20px;
+    position: relative;
+
+    [name="title"] {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    [name="content"] {
+        display: block;
+        margin: 10px 0;
+
+        width: 100%;
+        border: none;
+        font-family: inherit;
+    }
+
+    [name="author"] {
+        display: inline-block;
+        border: none;
+        width: calc(100% - 200px);
+        font-size: 0.8em;
+    }
+
+    [name="date"] {
+        position: absolute;
+        border: none;
+        text-align: right;
+        right: 80px;
+        width: 110px;
+        font-size: 0.8em;
+    }
+
+    [type="submit"] {
+        position: absolute;
+        right: 20px;
+        width: 50px;
+
+        background: #eee;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+    }
+}

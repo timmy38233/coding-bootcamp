@@ -6,6 +6,8 @@ import Searchbar from '../Searchbar/Searchbar';
 import Post from '../../components/Post/Post';
 import Form from '../Form/Form';
 
+import './Blog.scss';
+
 function Blog() {
     const { appState, dispatchAppState } = useContext(AppStateContext);
 
@@ -16,7 +18,7 @@ function Blog() {
         } catch (e) {
             console.log(e);
         }
-        
+
         if (!entries || !entries.length) {
             entries = [
                 {
@@ -34,8 +36,7 @@ function Blog() {
                 },
             ];
         }
-        dispatchAppState({ type: Actions.ClearEntries });
-        dispatchAppState({ type: Actions.AddEntries, payload: { entries: entries } });
+        dispatchAppState({ type: Actions.SetEntries, payload: { entries: entries } });
     }, []);
 
     useEffect(() => {
@@ -43,22 +44,27 @@ function Blog() {
     }, [appState.entries]);
 
     return (
-        <div className="Blog">
-            <Searchbar />
-            {appState.filteredEntries.map((entry, i) => (
-                <Post
-                    entry={entry}
-                    isLoggedIn={appState.login.isLoggedIn}
-                    setPostEditing={(entryId) =>
-                        dispatchAppState({
-                            type: Actions.SetPostEditing,
-                            payload: { entry: entry },
-                        })
-                    }
-                    theme={appState.colorScheme.name}
-                    key={entry.id}
-                />
-            ))}
+        <div className={`Blog Blog--${appState.colorScheme.name}`}>
+            <div className="Blog__Search">
+                <Searchbar />
+            </div>
+            <div className="Blog__List">
+                {appState.filteredEntries.map((entry, i) => (
+                    <Post
+                        entry={entry}
+                        isLoggedIn={appState.login.isLoggedIn}
+                        setPostEditing={(post) =>
+                            dispatchAppState({
+                                type: Actions.SetPostEditing,
+                                payload: { entry: post },
+                            })
+                        }
+                        theme={appState.colorScheme.name}
+                        key={entry.id}
+                    />
+                ))}
+
+            </div>
             {appState.login.isLoggedIn ? (
                 <Form
                     postToEdit={appState.postToEdit}

@@ -2,6 +2,8 @@ import { useContext, useEffect } from 'react';
 import { AppStateContext } from '../../../state/context';
 import Actions from '../../../state/Actions';
 
+import './ColorSchemeCycler.scss';
+
 function ColorSchemeCycler() {
     const { appState, dispatchAppState } = useContext(AppStateContext);
 
@@ -39,6 +41,7 @@ function ColorSchemeCycler() {
 
     return (
         <button
+            className={`ColorSchemeCycler ColorSchemeCycler--${appState.colorScheme.name}`}
             onClick={(e) =>
                 dispatchAppState({
                     type: Actions.SetColorScheme,
