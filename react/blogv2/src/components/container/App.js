@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import appStateReducer from '../../state/reducers/appStateReducer';
-import initialAppState from '../../state/initialAppState';
+import initialAppState from '../../state/models/initialAppState';
 import { AppStateContext } from '../../state/context';
 
 import Header from './Header/Header';
@@ -14,13 +14,13 @@ function App() {
     const [appState, dispatchAppState] = useReducer(appStateReducer, initialAppState);
 
     return (
-        <AppStateContext.Provider value={{ appState, dispatchAppState }}>
-            <div className="App">
+        <div className="App">
+            <AppStateContext.Provider value={{ appState, dispatchAppState }}>
                 <Header theme={appState.colorScheme.name} />
                 <Blog />
                 <Footer theme={appState.colorScheme.name} />
-            </div>
-        </AppStateContext.Provider>
+            </AppStateContext.Provider>
+        </div>
     );
 }
 

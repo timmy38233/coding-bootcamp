@@ -7,6 +7,7 @@ import './ColorSchemeCycler.scss';
 function ColorSchemeCycler() {
     const { appState, dispatchAppState } = useContext(AppStateContext);
 
+    // TODO: Outsource in custom hook
     const colorSchemes = [
         { name: 'dark', icon: '☽' },
         { name: 'light', icon: '☼' },

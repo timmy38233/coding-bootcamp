@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { AppStateContext } from '../state/context';
 import Actions from '../state/Actions';
 
+
 function useSearch(keys = ['title', 'content']) {
     const { appState, dispatchAppState } = useContext(AppStateContext);
     const [searchText, setSearchText] = useState('');
 
+    // TODO: Use arguments to access state
     useEffect(() => {
         dispatchAppState({
             type: Actions.SetFilteredEntries,
@@ -21,7 +23,7 @@ function useSearch(keys = ['title', 'content']) {
                 }) : []
             }
         });
-    }, [searchText, appState.entries]);
+    }, [searchText, appState.entries, dispatchAppState]);
 
     return [setSearchText];
 }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import './Form.scss';
+import './PostForm.scss';
 
-function Form(props) {
+function PostForm(props) {
     const { postToEdit, setPostEditing, savePost, theme } = props;
     const [formData, setFormData] = useState({ title: '', content: '', author: '', date: '' });
 
@@ -22,8 +22,10 @@ function Form(props) {
         setPostEditing({ title: '', content: '', author: '', date: '' });
     }
 
+    // TODO: Add clear button to reset editing a specific post
+
     return (
-        <div className={`Form Form--${theme}`}>
+        <div className={`PostForm PostForm--${theme}`}>
             <form onSubmit={submitForm}>
                 <input type="text" placeholder="Title..." name="title" value={formData.title} onChange={saveValue} required />
                 <textarea type="text" placeholder="Content..." name="content" value={formData.content} onChange={saveValue} required />
@@ -35,4 +37,4 @@ function Form(props) {
     )
 }
 
-export default Form
+export default PostForm
