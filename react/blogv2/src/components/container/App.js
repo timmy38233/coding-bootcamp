@@ -2,26 +2,27 @@ import { useReducer } from 'react';
 import appStateReducer from '../../state/reducers/appStateReducer';
 import initialAppState from '../../state/models/initialAppState';
 import { AppStateContext } from '../../state/context';
-
-import Header from './Header/Header';
-import Blog from './Blog/Blog';
-import Footer from '../components/Footer/Footer';
+import LayoutPage from '../../pages/Layout/LayoutPage';
 
 import './App.scss';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from '../../pages/Home/HomePage';
+import PostDetailPage from '../../pages/PostDetail/PostDetailPage';
+import LoginPage from '../../pages/Login/LoginPage';
 
 function App() {
 
     const [appState, dispatchAppState] = useReducer(appStateReducer, initialAppState);
 
-    return (
-        <div className="App">
-            <AppStateContext.Provider value={{ appState, dispatchAppState }}>
-                <Header theme={appState.colorScheme.name} />
-                <Blog />
-                <Footer theme={appState.colorScheme.name} />
-            </AppStateContext.Provider>
-        </div>
-    );
+    return (<AppStateContext.Provider value={{ appState, dispatchAppState }}>
+        <Routes>
+            <Route path='/' element={<LayoutPage />}>
+                <Route index element={<HomePage />} />
+                <Route path='post/:slug' element={<PostDetailPage />} />
+                <Route path='login' element={<LoginPage />} />
+            </Route>
+        </Routes>
+    </AppStateContext.Provider>);
 }
 
 export default App;

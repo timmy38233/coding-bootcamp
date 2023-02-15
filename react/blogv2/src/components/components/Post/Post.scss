@@ -29,7 +29,21 @@
         width: calc(100% - 50px);
         border: none;
         border-bottom: 1px solid #eee;
+        text-decoration: none;
     }
+
+    &--light &__title {
+        color: #000;
+    }
+
+    &--dark &__title {
+        color: #eee;
+    }
+
+    &--colorful &__title {
+        color: #fff;
+    }
+
 
     &__content {
         display: block;

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import generateSlug from '../../util/slugify';
 
 import Actions from '../Actions';
 
@@ -8,8 +9,11 @@ export default function appStateReducer(state, action) {
         case Actions.SetEntries:
             return {
                 ...state,
-                entries: action.payload.entries.map((e) =>
-                    !e.id ? { ...e, id: uuidv4() } : e
+                entries: action.payload.entries.map((e, i, entries) => {
+                    let modifiedEntry = !e.id ? { ...e, id: uuidv4() } : e;
+                    modifiedEntry = !modifiedEntry.slug ? { ...modifiedEntry, slug: generateSlug(entries, modifiedEntry.title) } : modifiedEntry;
+                    return modifiedEntry;
+                }
                 ),
             };
         case Actions.AddEntries: {
@@ -18,8 +22,11 @@ export default function appStateReducer(state, action) {
                 ...state,
                 entries: [
                     ...state.entries,
-                    ...action.payload.entries.map((e) =>
-                        !e.id ? { ...e, id: uuidv4() } : { ...e }
+                    ...action.payload.entries.map((e, i, entries) => {
+                        let modifiedEntry = !e.id ? { ...e, id: uuidv4() } : e;
+                        modifiedEntry = !modifiedEntry.slug ? { ...modifiedEntry, slug: generateSlug(entries, modifiedEntry.title) } : modifiedEntry;
+                        return modifiedEntry;
+                    }
                     ),
                 ],
             };
@@ -28,8 +35,8 @@ export default function appStateReducer(state, action) {
             return {
                 ...state,
                 entries: [
-                    ...state.entries.map((e) =>
-                        e.id === action.payload.entry.id ? { ...action.payload.entry } : { ...e }
+                    ...state.entries.map((e, i, entries) =>
+                        e.id === action.payload.entry.id ? { ...action.payload.entry, slug: generateSlug(entries, e.title) } : e
                     ),
                 ],
             };
