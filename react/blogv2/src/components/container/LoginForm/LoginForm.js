@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from 'react';
 import Actions from '../../../state/Actions';
 import { AppStateContext } from '../../../state/context';
 
-import './Login.scss';
+import './LoginForm.scss';
 
-function Login() {
+function LoginForm() {
     const { appState, dispatchAppState } = useContext(AppStateContext);
 
+    // TODO: Outsource in custom hook
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,7 +25,7 @@ function Login() {
             loginState = { isLoggedIn: false };
         }
         dispatchAppState({ type: Actions.UserLogin, payload: { login: loginState } });
-    }, []);
+    }, [dispatchAppState]);
 
     useEffect(() => {
         localStorage.setItem('loginState', JSON.stringify(appState.login));
@@ -48,9 +49,9 @@ function Login() {
         }
     };
     return (
-        <div className="Login">
+        <div className="LoginForm">
             {appState.login.isLoggedIn ? (
-                <div className="Login__Greeting">
+                <div className="LoginForm__Greeting">
                     Hi {appState.login.username} <button onClick={logout}>Logout</button>
                 </div>
             ) : (
@@ -72,4 +73,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginForm;
