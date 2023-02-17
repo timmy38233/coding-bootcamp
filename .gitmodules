@@ -4,3 +4,6 @@
 [submodule "CV"]
 	path = CV
 	url = git@github.com:timmy38233/CV.git
+[submodule "react/skillchain-landingpage"]
+	path = react/skillchain-landingpage
+	url = git@github.com:PRGH-GH/skillchain-landingpage.git
