@@ -1,0 +1,20 @@
+.LoginPage {
+    flex: 1;
+    text-align: center;
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+
+        width: 100%;
+        max-width: 300px;
+    }
+    & input {
+        height: 50px;
+        width: 100%;
+        margin: 1px 0;
+        box-sizing: border-box;
+    }
+
+}

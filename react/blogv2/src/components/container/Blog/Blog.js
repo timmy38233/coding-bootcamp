@@ -1,35 +1,13 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import Actions from '../../../state/Actions';
 import { AppStateContext } from '../../../state/context';
-import staticDefaultPosts from '../../../state/models/staticDefaultPosts';
-
-import Searchbar from '../Searchbar/Searchbar';
 import Post from '../../components/Post/Post';
 import PostForm from '../PostForm/PostForm';
-
+import Searchbar from '../Searchbar/Searchbar';
 import './Blog.scss';
 
 function Blog() {
     const { appState, dispatchAppState } = useContext(AppStateContext);
-
-    useEffect(() => {
-        let entries;
-        try {
-            entries = JSON.parse(localStorage.getItem('entries'));
-        } catch (e) {
-            console.log(e);
-        }
-
-        if (!entries || !entries.length) {
-            entries = staticDefaultPosts;
-        }
-
-        dispatchAppState({ type: Actions.SetEntries, payload: { entries: entries } });
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem('entries', JSON.stringify(appState.entries));
-    }, [appState.entries]);
 
     return (
         <div className={`Blog Blog--${appState.colorScheme.name}`}>

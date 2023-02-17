@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Actions from '../../state/Actions';
-import { AppStateContext } from '../../state/context';
+import Actions from '../../../state/Actions';
+import { AppStateContext } from '../../../state/context';
 import './LoginPage.scss';
 
 function LoginPage() {
@@ -38,6 +38,7 @@ function LoginPage() {
                 </div>
             ) : (
                 <form onSubmit={handleSubmit}>
+                    <h1>Login</h1>
                     <input
                         type="text"
                         placeholder="User..."
