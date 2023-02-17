@@ -1,0 +1,50 @@
+.PostDetail {
+    flex: 1;
+
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    &--light, &--light a {
+        background-color: #fff;
+        color: #000;
+    }
+
+    &--dark, &--dark a {
+        background-color: #333;
+        color: #eee;
+    }
+
+    &--colorful, &--colorful a {
+        background-color: darkred;
+        color: #fff;
+    }
+
+    &__Post {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    &__Title {
+        font-weight: 400;
+        font-size: 2em;
+        border-bottom: 1px solid #eee;
+    }
+
+    &__Content {
+        flex: 1;
+        margin: 10px 0;
+    }
+
+    &__Meta {
+        opacity: 0.66;
+    }
+
+    &__HomeLink {
+        text-align: center;
+    }
+}

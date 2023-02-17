@@ -6,17 +6,20 @@
     flex-direction: row;
     justify-content: center;
 
-    &--light {
+    &--light, &--light a {
         background-color: lightblue;
         color: #000;
+        text-decoration: none;
     }
-    &--dark {
+    &--dark, &--dark a {
         background-color: #333;
         color: #fff;
+        text-decoration: none;
     }
-    &--colorful {
+    &--colorful, &--colorful a {
         background-color: rgb(0, 97, 139);;
         color: #fff;
+        text-decoration: none;
     }
 
     &__Container {

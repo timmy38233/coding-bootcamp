@@ -1,9 +1,29 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  &__Content {
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh;
-    box-sizing: border-box;
-  
-    font-family: Arial, Helvetica, sans-serif;
+
+    &--light {
+      background-color: #eee;
+      color: #000;
+    }
+
+    &--dark {
+      background-color: #666;
+      color: #fff;
+    }
+
+    &--colorful {
+      background-color: rgb(119, 213, 138);
+      color: #000;
+    }
   }
+}

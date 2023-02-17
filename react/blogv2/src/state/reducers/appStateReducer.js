@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import generateSlug from '../../util/slugify';
+import generateSlug from '../../util/generateSlug';
 
 import Actions from '../Actions';
 
@@ -36,7 +36,7 @@ export default function appStateReducer(state, action) {
                 ...state,
                 entries: [
                     ...state.entries.map((e, i, entries) =>
-                        e.id === action.payload.entry.id ? { ...action.payload.entry, slug: generateSlug(entries, e.title) } : e
+                        e.id === action.payload.entry.id ? { ...action.payload.entry, slug: generateSlug(entries, action.payload.entry.title) } : e
                     ),
                 ],
             };
