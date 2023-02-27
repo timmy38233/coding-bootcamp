@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 import Actions from '../../state/Actions';
 import initialWikiReaderState from '../../state/models/initialWikiReaderState';
 import wikiReaderStateReducer from '../../state/reducers/wikiReaderStateReducer';
@@ -19,7 +19,7 @@ function App() {
         dispatchWikiReaderState({ type: Actions.DisplayArticle, payload: { articleToDisplay: article } })
     }, [article]);
 
-    const fetchSearchResults = useSearch(dispatchWikiReaderState);
+    const fetchSearchResults = useCallback(useSearch(dispatchWikiReaderState), []);
 
     useEffect(() => {
         fetchSearchResults(wikiReaderState.searchTerm);

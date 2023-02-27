@@ -3,13 +3,11 @@ import './ArticleList.scss';
 
 function ArticleList({ searchResultList, displayArticle }) {
     return (
-        <div className="ArticleList">
+        <ul className="ArticleList">
             {searchResultList.map((article, i) => {
-                return <div key={i}>
-                    <h2 onClick={(e) =>  displayArticle(article.pageid)}>{(article.thumbnail) ? <img src={article.thumbnail.source} alt={article.title} /> : ''}{article.title}</h2>
-                </div>
+                return <li className="ArticleList__item" key={i} onClick={(e) => displayArticle(article.pageid)}>{article.title}</li>
             })}
-        </div>
+        </ul>
     )
 }
 

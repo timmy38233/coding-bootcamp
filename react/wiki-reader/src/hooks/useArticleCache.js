@@ -36,7 +36,7 @@ export default function useArticleCache(state, dispatchWikiReaderState) {
                 }
             })
             .catch((e) => console.log(e));
-    }, [pageId]);
+    }, [pageId, dispatchWikiReaderState, state.articleCache]);
 
     return [article, setPageId];
 }

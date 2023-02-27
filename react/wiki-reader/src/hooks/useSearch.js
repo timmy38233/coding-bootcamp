@@ -1,3 +1,4 @@
+import { debounce } from "lodash";
 import { useEffect, useState } from "react";
 import Actions from "../state/Actions";
 
@@ -26,7 +27,7 @@ export default function useSearch(dispatchWikiReaderState) {
                 }
             })
             .catch((e) => console.log(e));
-    }, [searchTerm]);
+    }, [searchTerm, dispatchWikiReaderState]);
 
-    return setSearchTerm;
+    return debounce((value) => setSearchTerm(value), 300);
 }
