@@ -1,0 +1,43 @@
+.ArticleModal {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    bottom: 60px;
+    left: 60px;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+
+    border-radius: 20px;
+    border: 1px solid #666;
+
+    background: #fff;
+    box-shadow: 0 0 80px #666;
+
+    &__close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        border-radius: 5px;
+        border: 1px solid #ddd;
+
+        font-size: 1.25em;
+        background: #fff;
+
+        cursor: pointer;
+    }
+
+    &__article {
+        max-width: 100%;
+        max-height: 100%;
+        overflow: auto;
+    }
+
+    &__thumbnail {
+        max-width: 100%;
+        max-height: 50%;
+    }
+}
