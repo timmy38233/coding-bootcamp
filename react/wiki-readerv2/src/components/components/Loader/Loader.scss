@@ -1,0 +1,43 @@
+.Loader {
+    font-size: 1.5em;
+    margin: 0 auto;
+    text-align: center;
+
+    color: #666;
+
+    &::before {
+        content: '⟳';
+        display: block;
+        animation: spin 1s ease-in-out 0s infinite;
+    }
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        text-align: left;
+        animation: dots 1s linear 0s infinite;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes dots {
+    0% {
+        content: '';
+    }
+    33% {
+        content: '.';
+    }
+    66% {
+        content: '..';
+    }
+    100% {
+        content: '...';
+    }
+}
