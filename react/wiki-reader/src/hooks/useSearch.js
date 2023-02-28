@@ -14,7 +14,7 @@ export default function useSearch(dispatchWikiReaderState) {
             setSearchResultList({});
             return;
         }
-        let url = `https://en.wikipedia.org/w/api.php?action=query&generator=search&exintro=&prop=pageimages&format=json&origin=*&gsrsearch=${searchTerm}`;
+        let url = `https://en.wikipedia.org/w/api.php?action=query&generator=search&exintro=&prop=pageimages&format=json&origin=*&gsrsearch=${encodeURIComponent(searchTerm)}`;
 
         fetch(url)
             .then((result) => result.json())

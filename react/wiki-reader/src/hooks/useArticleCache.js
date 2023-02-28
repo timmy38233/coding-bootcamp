@@ -27,7 +27,7 @@ export default function useArticleCache(state, dispatchWikiReaderState) {
             .then((jsonObj) => {
                 try {
                     addArticleToCache(jsonObj.query.pages[pageId]);
-                    setArticle(jsonObj.query.pages[pageId])
+                    setArticle(jsonObj.query.pages[pageId]);
                 }
                 catch {
                     console.log(`PageID ${pageId} not found.`);
