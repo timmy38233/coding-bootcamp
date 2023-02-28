@@ -21,18 +21,20 @@ function App() {
         <div className="App">
             <Header />
             <SearchBar setSearchTerm={setSearchTerm} />
+
             {!!searchTerm ?
                 <Suspense fallback={<Loader />}>
                     <ArticleList searchResultListResource={searchResultListResourceMemo} setModalPageId={setModalPageId} />
                 </Suspense>
             : ''}
+
             {!!modalPageId ?
-            <Modal setModalPageId={setModalPageId}>
-                <Suspense fallback={<Loader />}>
-                    <ArticleDetail articleDetailResource={articleDetailResourceMemo} />
-                </Suspense>
-            </Modal>
-            : '' }
+                <Modal setModalPageId={setModalPageId}>
+                    <Suspense fallback={<Loader />}>
+                        <ArticleDetail articleDetailResource={articleDetailResourceMemo} />
+                    </Suspense>
+                </Modal>
+            : ''}
         </div>
     );
 }
