@@ -9,8 +9,15 @@ export default function articleDetailResource(pageId) {
 
     const articleDetailPromise = fetch(url)
         .then((result) => result.json())
-        .then((jsonObj) => jsonObj.query.pages[pageId])
-        .catch((e) => console.log(e));
+        .then((jsonObj) => {
+            try {
+                return jsonObj.query.pages[pageId];
+            }
+            catch {
+                return Promise.reject(jsonObj);
+            }
+        })
+        .catch((e) => { console.log('Error retrieving data'); console.log(e) });
 
     return wrapPromise(() => articleDetailPromise);
 }
