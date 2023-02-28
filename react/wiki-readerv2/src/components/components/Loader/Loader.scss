@@ -28,16 +28,16 @@
     }
 }
 @keyframes dots {
-    0% {
+    0%, 100% {
         content: '';
     }
-    33% {
+    25% {
         content: '.';
     }
-    66% {
+    50% {
         content: '..';
     }
-    100% {
+    75% {
         content: '...';
     }
 }
