@@ -1,23 +1,21 @@
 import wrapPromise from "./wrapPromise";
 
-export default function searchResultListResource(searchTerm) {
+async function searchResultList(searchTerm) {
     if (!searchTerm) {
-        return wrapPromise(() => new Promise((res) => res([])));
+        return [];
     }
 
     let url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&srlimit=15&origin=*&srsearch=${encodeURIComponent(searchTerm)}`;
 
-    const searchResultListPromise = fetch(url)
-        .then((result) => result.json())
-        .then((jsonObj) => {
-            try {
-                return jsonObj.query.search;
-            }
-            catch {
-                return Promise.reject(jsonObj);
-            }
-        })
-        .catch((e) => { console.log('Error retrieving data'); console.log(e) });
+    const searchResultList = await fetch(url).then((result) => result.json());
+    try {
+        return searchResultList.query.search;
+    }
+    catch {
+        return [];
+    }
+}
 
-    return wrapPromise(() => searchResultListPromise);
+export default function searchResultListResource(searchTerm) {
+    return wrapPromise(() => searchResultList(searchTerm));
 }
