@@ -96,9 +96,11 @@ console.log(`The square root of ${numC} is ${squareRoot(numC)}`);
 //Task 9
 function isPalindrome(str: string): boolean {
     let isPalindrome: boolean = true;
+
     for (let i: number = 0; i < (str.length / 2) && isPalindrome; i++) {
         isPalindrome = str[i] === str[str.length - i - 1];
     }
+
     return isPalindrome;
 }
 
@@ -174,11 +176,13 @@ console.log(`${numA} raised to the power of ${numB} is ${raiseToPowerRec(numA, n
 
 
 //Task 16
-function squareAndCallCB(num: number, fn: (a: number, b: (a: number) => any) => any) {
-    return fn(num ** 2, isEven)
+type Callback<T> = (a: T) => any;
+
+function squareAndCallCB(num: number, fn: (a: number, b: Callback<number>) => any) {
+    return fn(num ** 2, isEven);
 }
 
-function callSecondCallback(num: number, fn: (a: number) => boolean): boolean {
+function callSecondCallback(num: number, fn: Callback<number>): boolean {
     return fn(num);
 }
 
@@ -186,11 +190,11 @@ console.log(`The square of ${numA} is even! -> ${squareAndCallCB(numA, callSecon
 
 
 //Task 17
-function reverseAndCallCB(str: string, fn: (a: string, b: (a: string) => any) => any) {
+function reverseAndCallCB(str: string, fn: (a: string, b: Callback<string>) => any) {
     return fn(reverseString(str), countVowels);
 }
 
-function callAnotherCallback(str: string, fn: (a: string) => number): number {
+function callAnotherCallback(str: string, fn: Callback<string>): number {
     return fn(str);
 }
 
