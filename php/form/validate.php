@@ -1,5 +1,5 @@
 <?php
-function getDataFromRequest(string $method, array $keys)
+function getDataFromRequest(string $method, array $keys): array
 {
     $data = [];
     foreach ($keys as $key) {
@@ -10,7 +10,7 @@ function getDataFromRequest(string $method, array $keys)
 
 function createErrorMessage(string $message, ...$params): string
 {
-    return sprintf('<div class="Error">%s</div>', sprintf($message, ...$params));
+    return sprintf('<div class="Error">%s</div>', sprintf($message, ...array_map(fn($param) => htmlspecialchars($param), $params)));
 }
 
 function validateInputs(string ...$keys): ?string
@@ -56,7 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PHP Form Validate</title>
     <style>
@@ -72,11 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 </head>
 
 <body>
-    <div class="Validator">
-        <h1>Form validator</h1>
-        <?= $content ?>
-        <a href="javascript:history.back()">Back to form</a>
-    </div>
+<div class="Validator">
+    <h1>Form validator</h1>
+    <?= $content ?>
+    <a href="javascript:history.back()">Back to form</a>
+</div>
 </body>
 
 </html>
