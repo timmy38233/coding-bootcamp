@@ -9,7 +9,7 @@ $intC = 9;
 $floatA = 2.17;
 $floatB = 3.14;
 
-$str = "The quick brown fox jumps over the lazzy dog.";
+$str = "The quick brown fox jumps over the lazy dog.";
 $pal = "racecar";
 
 
@@ -63,7 +63,7 @@ printf("Is the number %d even? %s\n", $intB, (isEven($intB) ? 'Yes' : 'No'));
 function reverseString(string $str): string
 {
     $strReversed = '';
-    for ($i =  strlen($str); $i > 0; $i--) {
+    for ($i = strlen($str); $i > 0; $i--) {
         $strReversed .= $str[$i - 1];
     }
     return $strReversed;
@@ -137,7 +137,7 @@ printf("The factorial of %d is %d\n", $intC, fact($intC));
 // Task 11
 function fib(int $n): int
 {
-    
+
     return ($n <= 1) ? $n : fib($n - 1) + fib($n - 2);
 }
 
