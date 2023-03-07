@@ -37,7 +37,6 @@ function getPostContent(int $postId): string
     try {
         return json_decode(file_get_contents($filePath), true)['content'];
     } catch (Exception $e) {
-        echo "test";
         return '';
     }
 }
