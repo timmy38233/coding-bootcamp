@@ -53,8 +53,6 @@ function savePost(array $postData): void
 {
     $globalMetaData = loadMetaData(STORAGE_PATH . META_FILE);
 
-    $postFileName = '';
-
     if (isset($postData['id']) && array_key_exists($postData['id'], $globalMetaData['posts'])) {
         $postId = intval($postData['id']);
         $postFileName = STORAGE_PATH . $postId . '.json';
