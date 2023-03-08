@@ -9,6 +9,15 @@ function httpError(int $status, string $message, string $additionalHeaders = '')
     die($message);
 }
 
+function getDataFromRequest(...$keys): array
+{
+    $data = [];
+    foreach ($keys as $key) {
+        $data[$key] = $_REQUEST[$key] ?? '';
+    }
+    return $data;
+}
+
 function loadMetaData(string $filePath): array
 {
     $metaData = [];
@@ -41,10 +50,17 @@ function getPostContent(int $postId): string
     }
 }
 
-function getAllPosts(): void
+function getPosts(): void
 {
     $metaData = loadMetaData(STORAGE_PATH . META_FILE);
     $posts = $metaData['posts'] ?? [];
+
+    $requestData = getDataFromRequest('id');
+    $requestPostId = intval($requestData['id']) ?? '';
+
+    if (!empty($requestPostId)) {
+        $posts = isset($metaData['posts'][$requestPostId]) ? [$metaData['posts'][$requestPostId]] : [];
+    }
 
     foreach ($posts as $postId => $post) {
         $posts[$postId] = [...$post,
@@ -62,4 +78,4 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 const STORAGE_PATH = './storage/';
 const META_FILE = 'meta.json';
 
-getAllPosts();
+getPosts();
